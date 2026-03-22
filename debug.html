@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SoundCloud GraphQL Debug</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; background: #111827; color: #f9fafb; }
+    header { padding: 16px 20px; border-bottom: 1px solid #374151; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    h1 { font-size: 20px; margin: 0; }
+    button { background: #2563eb; color: white; border: 0; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+    button.secondary { background: #374151; }
+    #summary { opacity: .8; font-size: 14px; }
+    #events { padding: 16px 20px; display: grid; gap: 14px; }
+    .event { background: #1f2937; border: 1px solid #374151; border-radius: 10px; overflow: hidden; }
+    .event-head { padding: 12px 14px; display: flex; justify-content: space-between; gap: 12px; background: #111827; border-bottom: 1px solid #374151; }
+    .event-meta { font-size: 13px; opacity: .8; }
+    .event-body { padding: 14px; display: grid; gap: 12px; }
+    .section { background: rgba(255,255,255,.03); border-radius: 8px; padding: 12px; }
+    .section h3 { margin: 0 0 8px 0; font-size: 14px; }
+    pre { margin: 0; white-space: pre-wrap; word-break: break-word; font-size: 12px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { background: #0f766e; border-radius: 999px; padding: 4px 10px; font-size: 12px; }
+    .empty { padding: 24px 20px; opacity: .8; }
+    a { color: #93c5fd; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GraphQL Debug Window</h1>
+    <button id="refresh">Refresh</button>
+    <button id="clear" class="secondary">Clear</button>
+    <div id="summary">Waiting for captures…</div>
+  </header>
+  <div id="events"></div>
+  <script src="debug.js"></script>
+</body>
+</html>
+

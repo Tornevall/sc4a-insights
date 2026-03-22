@@ -1,0 +1,25 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="scxBg" x1="14" y1="10" x2="110" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB067"/>
+      <stop offset="0.55" stop-color="#FF7A22"/>
+      <stop offset="1" stop-color="#FF5500"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="116" height="116" rx="30" fill="url(#scxBg)"/>
+  <ellipse cx="37" cy="31" rx="34" ry="24" fill="#FFD1A8" fill-opacity="0.34"/>
+  <g>
+    <rect x="27" y="54" width="74" height="38" rx="16" fill="white" fill-opacity="0.96"/>
+    <circle cx="40" cy="60" r="15" fill="white" fill-opacity="0.96"/>
+    <circle cx="60" cy="50" r="19" fill="white" fill-opacity="0.96"/>
+    <circle cx="84" cy="57" r="16" fill="white" fill-opacity="0.96"/>
+  </g>
+  <rect x="40" y="73" width="9" height="21" rx="4.5" fill="#FF6A1A"/>
+  <rect x="57" y="62" width="9" height="32" rx="4.5" fill="#FF6A1A"/>
+  <rect x="74" y="50" width="9" height="44" rx="4.5" fill="#FF6A1A"/>
+  <path d="M36 72.5L54 66.5L70 58L88 46" stroke="#7E2D00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="72.5" r="3.8" fill="#7E2D00"/>
+  <circle cx="54" cy="66.5" r="3.8" fill="#7E2D00"/>
+  <circle cx="70" cy="58" r="3.8" fill="#7E2D00"/>
+  <circle cx="88" cy="46" r="3.8" fill="#7E2D00"/>
+</svg>

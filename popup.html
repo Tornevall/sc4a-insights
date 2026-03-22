@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SoundCloud Insights Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 14px; width: 320px; color: #111827; }
+    h1 { font-size: 18px; margin: 0; }
+    p { font-size: 12px; line-height: 1.45; margin: 0 0 10px 0; color: #475569; }
+    label { display: block; font-weight: 600; margin-top: 12px; }
+    input[type="text"] { width: 100%; box-sizing: border-box; padding: 8px; margin-top: 4px; border: 1px solid #cbd5e1; border-radius: 8px; }
+    .check { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 13px; }
+    .check input { margin-top: 2px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    button { border: 0; border-radius: 8px; padding: 8px 12px; cursor: pointer; background: #111827; color: #fff; }
+    button.secondary { background: #475569; }
+    code { background: #f1f5f9; padding: 1px 5px; border-radius: 5px; }
+    #status { margin-top: 12px; font-size: 12px; white-space: pre-wrap; }
+    .card { margin-top: 14px; border: 1px solid #dbe4f0; background: #f8fbff; border-radius: 10px; padding: 10px; }
+    .card h2 { margin: 0 0 8px 0; font-size: 14px; }
+    .diag-line { font-size: 12px; line-height: 1.45; margin: 0 0 6px 0; color: #334155; }
+    .diag-muted { color: #64748b; }
+    .diag-list { display: grid; gap: 8px; margin-top: 8px; }
+    .diag-item { border-top: 1px solid #e2e8f0; padding-top: 8px; font-size: 12px; line-height: 1.4; }
+    .diag-item:first-child { border-top: 0; padding-top: 0; }
+    .pill { display:inline-block; border-radius:999px; background:#dbeafe; color:#1d4ed8; padding:2px 8px; font-size:11px; font-weight:700; margin-right:6px; }
+    .brand-head { display:flex; align-items:center; gap:12px; margin: 0 0 10px 0; }
+    .brand-head img { width:32px; height:32px; border-radius:10px; box-shadow: 0 6px 16px rgba(255,85,0,.22); }
+  </style>
+</head>
+<body>
+  <div class="brand-head">
+    <img src="./icons/icon32.png" alt="SoundCloud Insights icon">
+    <h1>SoundCloud 4 Artists</h1>
+  </div>
+  <p>Captures supported SoundCloud 4 Artists insight views locally and can forward normalized datasets into your Tools account.</p>
+  <p>Ingest target: <code>/api/social-media-tools/soundcloud/ingest</code></p>
+
+  <label for="toolsToken">Tools bearer token</label>
+  <input id="toolsToken" type="text" placeholder="Paste your personal Tools bearer token">
+
+  <div class="check">
+    <input id="devMode" type="checkbox">
+    <label for="devMode" style="margin:0; font-weight:500;">Use dev/beta Tools host (<code>tools.tornevall.com</code>)</label>
+  </div>
+
+  <div class="check">
+    <input id="autoIngestEnabled" type="checkbox">
+    <label for="autoIngestEnabled" style="margin:0; font-weight:500;">Auto-ingest supported SoundCloud insights captures into Tools API</label>
+  </div>
+
+  <div class="check">
+    <input id="overlayEnabled" type="checkbox">
+    <label for="overlayEnabled" style="margin:0; font-weight:500;">Enable on-page overlay when relevant SoundCloud insights data exists</label>
+  </div>
+
+  <div class="check">
+    <input id="overlayStartsCollapsed" type="checkbox">
+    <label for="overlayStartsCollapsed" style="margin:0; font-weight:500;">Start overlay minimized when data first appears</label>
+  </div>
+
+  <div class="row">
+    <button id="saveBtn" type="button">Save</button>
+    <button id="debugBtn" type="button" class="secondary">Debug window</button>
+  </div>
+
+  <section class="card" id="diagnosticsCard">
+    <h2>Active tab diagnostics</h2>
+    <p class="diag-line" id="diagTabState">Checking active SoundCloud tab…</p>
+    <p class="diag-line diag-muted" id="diagPipelineState"></p>
+    <div class="diag-list" id="diagRecentEvents">
+      <div class="diag-line diag-muted">No captures from the active tab yet.</div>
+    </div>
+  </section>
+
+  <div id="status"></div>
+  <script src="./popup.js"></script>
+</body>
+</html>
+
