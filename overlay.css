@@ -1,7 +1,7 @@
 /* overlay.css */
 .scx-overlay {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   width: 520px;
   max-height: 500px;
@@ -17,6 +17,15 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.45);
 }
 
+.scx-overlay.hidden {
+  display: none !important;
+}
+
+.scx-overlay.scx-collapsed {
+  width: 280px;
+  max-height: none;
+}
+
 .scx-head {
   display: flex;
   align-items: center;
@@ -28,7 +37,25 @@
   cursor: move;
   user-select: none;
 }
-.scx-title { font-weight: 700; letter-spacing: .2px; }
+.scx-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.scx-title-icon {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.22);
+}
+
+.scx-title {
+  font-weight: 700;
+  letter-spacing: .2px;
+}
 .scx-actions button {
   border: 1px solid rgba(255,255,255,0.35);
   background: rgba(255,255,255,0.1);
@@ -44,6 +71,7 @@
   display: flex;
   border-bottom: 1px solid rgba(255,255,255,0.25);
 }
+.scx-tabs.hidden { display: none; }
 .scx-tab {
   flex: 1;
   text-align: center;
@@ -62,6 +90,13 @@
   max-height: 380px;
 }
 .scx-body.hidden { display: none; }
+
+.scx-summary {
+  padding: 8px 10px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 11px;
+  color: rgba(255,255,255,0.82);
+}
 
 .scx-table {
   border-collapse: collapse;

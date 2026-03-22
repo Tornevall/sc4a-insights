@@ -32,8 +32,8 @@ if (!window.__scx_hook_installed__) {
 
       if (isTarget && options && typeof options.body === "string") {
         const req = safeParseJSON(options.body);
-        opName = req?.operationName || null;
-        variables = req?.variables || null;
+        opName = req && req.operationName ? req.operationName : null;
+        variables = req && req.variables ? req.variables : null;
         // Debug hook
         // console.log("➡️ [fetch:req]", location.hostname, opName, req);
       }
@@ -44,7 +44,7 @@ if (!window.__scx_hook_installed__) {
         try {
           const clone = resp.clone();
           clone.json().then((json) => {
-            const data = json?.data ?? json ?? null;
+            const data = json && typeof json.data !== "undefined" ? json.data : (typeof json !== "undefined" ? json : null);
             emit(opName, variables, data, {
               frame: location.href,
               host: location.hostname,
@@ -76,8 +76,8 @@ XMLHttpRequest.prototype.send = function (body) {
 
   if (isTarget && typeof body === "string") {
     const req = safeParseJSON(body);
-    opName = req?.operationName || null;
-    variables = req?.variables || null;
+    opName = req && req.operationName ? req.operationName : null;
+    variables = req && req.variables ? req.variables : null;
   }
 
   if (isTarget) {
@@ -85,7 +85,7 @@ XMLHttpRequest.prototype.send = function (body) {
       try {
         if (this.responseType === "" || this.responseType === "text") {
           const json = safeParseJSON(this.responseText);
-          emit(opName, variables, json?.data ?? json, {
+          emit(opName, variables, json && typeof json.data !== "undefined" ? json.data : json, {
             frame: location.href,
             host: location.hostname,
             via: "xhr"
@@ -94,7 +94,7 @@ XMLHttpRequest.prototype.send = function (body) {
           const reader = new FileReader();
           reader.onload = () => {
             const json = safeParseJSON(reader.result);
-            emit(opName, variables, json?.data ?? json, {
+            emit(opName, variables, json && typeof json.data !== "undefined" ? json.data : json, {
               frame: location.href,
               host: location.hostname,
               via: "xhr-blob"
